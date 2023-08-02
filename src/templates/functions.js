@@ -7,12 +7,12 @@ export function createMarkupOptions(arr) {
 }
 
 export function createMarkupCatShow(array) {
-  const markup = 
-  ` <!-- розмітка для кота -->
+  const markup = ` <!-- розмітка для кота -->
     <div class="info-cat">
     <div><img
                 srcset="${array.url}"
                 src="${array.url}"
+                loading="lazy"
                 alt="Cat"
                 class="cat-img"
               /></div>
