@@ -27,17 +27,15 @@ function renderData(dataCat) {
 
   loaderItem.hidden = true;
   selectBreed.hidden = false;
-    sectionLoad.hidden = true;
-    
-    new SlimSelect({
-        select: '#selectBreed'
-    });
-  
+  sectionLoad.hidden = true;
+
+  new SlimSelect({
+    select: '#selectBreed',
+  });
 }
 
 function errorfetchData() {
   loaderItem.hidden = true;
-  //   errorItem.hidden = false;
 }
 
 //слідкуємо за тим, яку породу користувач вибрав
@@ -48,12 +46,24 @@ function showInfoBreed(e) {
 }
 
 function showCat(infoCat) {
-  console.log(infoCat);
+  divInfoCat.innerHTML = '';
   const markup = createMarkupCatShow(infoCat);
+  console.log(markup);
   divInfoCat.innerHTML = markup;
+  console.log(divInfoCat);
 }
 
+Notiflix.Notify.init({
+  width: '480px',
+  position: 'left-top',
+  distance: '90px',
+  opacity: 1,
+  fontSize: '20px',
+  clickToClose: true,
+  timeout: 1000,
+  // ...
+});
+
 function errorGetInfoCat(error) {
-  // Notiflix.Notify.warning(error);
-  console.log('x');
+  Notiflix.Notify.failure('Немає інформації по цьому котику!');
 }
